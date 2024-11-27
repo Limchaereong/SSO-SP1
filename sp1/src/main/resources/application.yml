@@ -1,9 +1,0 @@
-server:
-  port: 8070
-
-spring:
-  application:
-    name: sp1				
-logging:
-  level:
-    org.springframework.web.client.RestTemplate: DEBUG
