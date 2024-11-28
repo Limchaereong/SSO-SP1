@@ -19,6 +19,8 @@ public enum ErrorCode {
 	NOT_FOUND_KEYS(HttpStatus.NOT_FOUND, "Keys 값들을 찾지 못했습니다."),
 	JWKS_ERROR(HttpStatus.NOT_FOUND, "JWKS가 제대로 제공되지 않았습니다."),
 	NOT_FOUND_USER(HttpStatus.NOT_FOUND, "일치하는 회원을 찾지 못했습니다"),
+	EMPTY_PUBLIC_KEY(HttpStatus.NOT_FOUND, "공개키가 비어있습니다."),
+	ERROR_PUBLIC_KEY(HttpStatus.NOT_FOUND, "공개키에 문제가 있습니다."),
 
 	// 500 - Internal Server Error
 	INTERNAL_SERVER_ERROR(HttpStatus.INTERNAL_SERVER_ERROR, "서버 내부에 문제가 발생했습니다."),

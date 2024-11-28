@@ -15,6 +15,7 @@ import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseEntity;
 
+import com.example.demo.common.exception.NotFoundException;
 import com.example.demo.common.exception.UnauthorizedException;
 import com.example.demo.common.exception.payload.ErrorCode;
 import com.example.demo.common.response.ApiResponse;
@@ -73,10 +74,10 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
         try {
             publicKeyValue = restTemplate.getForObject(url, String.class);
             if (publicKeyValue == null || publicKeyValue.isEmpty()) {
-                throw new RuntimeException("Public key fetch failed");
+                throw new NotFoundException(ErrorCode.EMPTY_PUBLIC_KEY);
             }
         } catch (Exception e) {
-            throw new RuntimeException("Failed to fetch public key from IDP server", e);
+            throw new NotFoundException(ErrorCode.ERROR_PUBLIC_KEY);
         }
     }
 
